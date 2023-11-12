@@ -1,0 +1,8 @@
+schema: schema.graphqls
+extensions:
+  endpoints:
+    local:
+      url: http://localhost:8080/v1/graphql
+      introspect: true
+      headers:
+        origin: http://localhost:5173

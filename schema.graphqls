@@ -1,0 +1,391 @@
+# This file was generated. Do not edit manually.
+
+schema {
+  query: query_root
+  mutation: mutation_root
+  subscription: subscription_root
+}
+
+"whether this query should be cached (Hasura Cloud only)"
+directive @cached(
+  "refresh the cache entry"
+  refresh: Boolean! = false,
+  "measured in seconds"
+  ttl: Int! = 60
+) on QUERY
+
+"columns and relationships of \"gifs\""
+type gifs {
+  category: String!
+  id: Int!
+  url: String!
+}
+
+"aggregated selection of \"gifs\""
+type gifs_aggregate {
+  aggregate: gifs_aggregate_fields
+  nodes: [gifs!]!
+}
+
+"aggregate fields of \"gifs\""
+type gifs_aggregate_fields {
+  avg: gifs_avg_fields
+  count(columns: [gifs_select_column!], distinct: Boolean): Int!
+  max: gifs_max_fields
+  min: gifs_min_fields
+  stddev: gifs_stddev_fields
+  stddev_pop: gifs_stddev_pop_fields
+  stddev_samp: gifs_stddev_samp_fields
+  sum: gifs_sum_fields
+  var_pop: gifs_var_pop_fields
+  var_samp: gifs_var_samp_fields
+  variance: gifs_variance_fields
+}
+
+"aggregate avg on columns"
+type gifs_avg_fields {
+  id: Float
+}
+
+"aggregate max on columns"
+type gifs_max_fields {
+  category: String
+  id: Int
+  url: String
+}
+
+"aggregate min on columns"
+type gifs_min_fields {
+  category: String
+  id: Int
+  url: String
+}
+
+"response of any mutation on the table \"gifs\""
+type gifs_mutation_response {
+  "number of rows affected by the mutation"
+  affected_rows: Int!
+  "data from the rows affected by the mutation"
+  returning: [gifs!]!
+}
+
+"aggregate stddev on columns"
+type gifs_stddev_fields {
+  id: Float
+}
+
+"aggregate stddev_pop on columns"
+type gifs_stddev_pop_fields {
+  id: Float
+}
+
+"aggregate stddev_samp on columns"
+type gifs_stddev_samp_fields {
+  id: Float
+}
+
+"aggregate sum on columns"
+type gifs_sum_fields {
+  id: Int
+}
+
+"aggregate var_pop on columns"
+type gifs_var_pop_fields {
+  id: Float
+}
+
+"aggregate var_samp on columns"
+type gifs_var_samp_fields {
+  id: Float
+}
+
+"aggregate variance on columns"
+type gifs_variance_fields {
+  id: Float
+}
+
+"mutation root"
+type mutation_root {
+  "delete data from the table: \"gifs\""
+  delete_gifs(
+    "filter the rows which have to be deleted"
+    where: gifs_bool_exp!
+  ): gifs_mutation_response
+  "delete single row from the table: \"gifs\""
+  delete_gifs_by_pk(id: Int!): gifs
+  "insert data into the table: \"gifs\""
+  insert_gifs(
+    "the rows to be inserted"
+    objects: [gifs_insert_input!]!,
+    "upsert condition"
+    on_conflict: gifs_on_conflict
+  ): gifs_mutation_response
+  "insert a single row into the table: \"gifs\""
+  insert_gifs_one(
+    "the row to be inserted"
+    object: gifs_insert_input!,
+    "upsert condition"
+    on_conflict: gifs_on_conflict
+  ): gifs
+  "update data of the table: \"gifs\""
+  update_gifs(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: gifs_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: gifs_set_input,
+    "filter the rows which have to be updated"
+    where: gifs_bool_exp!
+  ): gifs_mutation_response
+  "update single row of the table: \"gifs\""
+  update_gifs_by_pk(
+    "increments the numeric columns with given value of the filtered values"
+    _inc: gifs_inc_input,
+    "sets the columns of the filtered rows to the given values"
+    _set: gifs_set_input,
+    pk_columns: gifs_pk_columns_input!
+  ): gifs
+  "update multiples rows of table: \"gifs\""
+  update_gifs_many(
+    "updates to execute, in order"
+    updates: [gifs_updates!]!
+  ): [gifs_mutation_response]
+}
+
+type query_root {
+  "fetch data from the table: \"gifs\""
+  gifs(
+    "distinct select on columns"
+    distinct_on: [gifs_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [gifs_order_by!],
+    "filter the rows returned"
+    where: gifs_bool_exp
+  ): [gifs!]!
+  "fetch aggregated fields from the table: \"gifs\""
+  gifs_aggregate(
+    "distinct select on columns"
+    distinct_on: [gifs_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [gifs_order_by!],
+    "filter the rows returned"
+    where: gifs_bool_exp
+  ): gifs_aggregate!
+  "fetch data from the table: \"gifs\" using primary key columns"
+  gifs_by_pk(id: Int!): gifs
+}
+
+type subscription_root {
+  "fetch data from the table: \"gifs\""
+  gifs(
+    "distinct select on columns"
+    distinct_on: [gifs_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [gifs_order_by!],
+    "filter the rows returned"
+    where: gifs_bool_exp
+  ): [gifs!]!
+  "fetch aggregated fields from the table: \"gifs\""
+  gifs_aggregate(
+    "distinct select on columns"
+    distinct_on: [gifs_select_column!],
+    "limit the number of rows returned"
+    limit: Int,
+    "skip the first n rows. Use only with order_by"
+    offset: Int,
+    "sort the rows by one or more columns"
+    order_by: [gifs_order_by!],
+    "filter the rows returned"
+    where: gifs_bool_exp
+  ): gifs_aggregate!
+  "fetch data from the table: \"gifs\" using primary key columns"
+  gifs_by_pk(id: Int!): gifs
+  "fetch data from the table in a streaming manner: \"gifs\""
+  gifs_stream(
+    "maximum number of rows returned in a single batch"
+    batch_size: Int!,
+    "cursor to stream the results returned by the query"
+    cursor: [gifs_stream_cursor_input]!,
+    "filter the rows returned"
+    where: gifs_bool_exp
+  ): [gifs!]!
+}
+
+"ordering argument of a cursor"
+enum cursor_ordering {
+  "ascending ordering of the cursor"
+  ASC
+  "descending ordering of the cursor"
+  DESC
+}
+
+"unique or primary key constraints on table \"gifs\""
+enum gifs_constraint {
+  "unique or primary key constraint on columns \"id\""
+  gifs_pkey
+}
+
+"select columns of table \"gifs\""
+enum gifs_select_column {
+  "column name"
+  category
+  "column name"
+  id
+  "column name"
+  url
+}
+
+"update columns of table \"gifs\""
+enum gifs_update_column {
+  "column name"
+  category
+  "column name"
+  id
+  "column name"
+  url
+}
+
+"column ordering options"
+enum order_by {
+  "in ascending order, nulls last"
+  asc
+  "in ascending order, nulls first"
+  asc_nulls_first
+  "in ascending order, nulls last"
+  asc_nulls_last
+  "in descending order, nulls first"
+  desc
+  "in descending order, nulls first"
+  desc_nulls_first
+  "in descending order, nulls last"
+  desc_nulls_last
+}
+
+"Boolean expression to compare columns of type \"Int\". All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+"Boolean expression to compare columns of type \"String\". All fields are combined with logical 'AND'."
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  "does the column match the given case-insensitive pattern"
+  _ilike: String
+  _in: [String!]
+  "does the column match the given POSIX regular expression, case insensitive"
+  _iregex: String
+  _is_null: Boolean
+  "does the column match the given pattern"
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  "does the column NOT match the given case-insensitive pattern"
+  _nilike: String
+  _nin: [String!]
+  "does the column NOT match the given POSIX regular expression, case insensitive"
+  _niregex: String
+  "does the column NOT match the given pattern"
+  _nlike: String
+  "does the column NOT match the given POSIX regular expression, case sensitive"
+  _nregex: String
+  "does the column NOT match the given SQL regular expression"
+  _nsimilar: String
+  "does the column match the given POSIX regular expression, case sensitive"
+  _regex: String
+  "does the column match the given SQL regular expression"
+  _similar: String
+}
+
+"Boolean expression to filter rows from the table \"gifs\". All fields are combined with a logical 'AND'."
+input gifs_bool_exp {
+  _and: [gifs_bool_exp!]
+  _not: gifs_bool_exp
+  _or: [gifs_bool_exp!]
+  category: String_comparison_exp
+  id: Int_comparison_exp
+  url: String_comparison_exp
+}
+
+"input type for incrementing numeric columns in table \"gifs\""
+input gifs_inc_input {
+  id: Int
+}
+
+"input type for inserting data into table \"gifs\""
+input gifs_insert_input {
+  category: String
+  id: Int
+  url: String
+}
+
+"on_conflict condition type for table \"gifs\""
+input gifs_on_conflict {
+  constraint: gifs_constraint!
+  update_columns: [gifs_update_column!]! = []
+  where: gifs_bool_exp
+}
+
+"Ordering options when selecting data from \"gifs\"."
+input gifs_order_by {
+  category: order_by
+  id: order_by
+  url: order_by
+}
+
+"primary key columns input for table: gifs"
+input gifs_pk_columns_input {
+  id: Int!
+}
+
+"input type for updating data in table \"gifs\""
+input gifs_set_input {
+  category: String
+  id: Int
+  url: String
+}
+
+"Streaming cursor of the table \"gifs\""
+input gifs_stream_cursor_input {
+  "Stream column input with initial value"
+  initial_value: gifs_stream_cursor_value_input!
+  "cursor ordering"
+  ordering: cursor_ordering
+}
+
+"Initial value of the column from where the streaming should start"
+input gifs_stream_cursor_value_input {
+  category: String
+  id: Int
+  url: String
+}
+
+input gifs_updates {
+  "increments the numeric columns with given value of the filtered values"
+  _inc: gifs_inc_input
+  "sets the columns of the filtered rows to the given values"
+  _set: gifs_set_input
+  "filter the rows which have to be updated"
+  where: gifs_bool_exp!
+}

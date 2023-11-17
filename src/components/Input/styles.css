@@ -1,0 +1,14 @@
+.input {
+  width: -webkit-fill-available;
+  padding: 6px 15px;
+  border-radius: 5px;
+  border: 2px solid #3660AB;
+  color: #000000;
+  font-size: 14px;
+}
+
+@media (max-width: 680px), screen and (orientation: portrait) {
+  .input {
+    padding: 10px 15px;
+  }
+}

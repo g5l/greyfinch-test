@@ -5,7 +5,7 @@ import {Gif} from "@/types";
 import {VirtuosoGrid} from "react-virtuoso";
 import "./styles.css";
 
-type PropsTimeline = {
+interface PropsTimeline {
   data: Gif[],
   totalCount: number,
   category: string,

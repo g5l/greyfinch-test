@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-type PropsFilterGroup = {
+interface PropsFilterGroup {
   values: string[],
   onClick: (e: React.MouseEvent<HTMLElement>) => void
 }

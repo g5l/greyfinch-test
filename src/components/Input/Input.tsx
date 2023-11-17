@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-type PropsInput = {
+interface PropsInput {
   value: string[],
   placeholder: string
   onChange: (e: React.FormEvent<HTMLInputElement>) => void

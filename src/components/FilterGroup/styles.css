@@ -1,0 +1,28 @@
+.filterGroup-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.filterGroup-item {
+  padding: 8px 15px;
+  background: #3660AB;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+@media (max-width: 680px), screen and (orientation: portrait) {
+  .filterGroup-container {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .filterGroup-item {
+    padding: 12px 20px;
+  }
+}

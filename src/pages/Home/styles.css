@@ -14,6 +14,10 @@
   gap: 60px;
 }
 
+.title {
+  color: #989898;
+}
+
 @media (max-width: 680px), screen and (orientation: portrait) {
   .home-container {
     margin: 0;
@@ -25,5 +29,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+  }
+
+  .title {
+    text-align: center;
+    margin: 10px 0;
   }
 }

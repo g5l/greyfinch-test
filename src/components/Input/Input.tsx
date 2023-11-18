@@ -1,8 +1,8 @@
 import React from "react";
 import "./styles.css";
 
-interface PropsInput {
-  value: string[],
+export interface PropsInput {
+  value: string,
   placeholder: string
   onChange: (e: React.FormEvent<HTMLInputElement>) => void
 }

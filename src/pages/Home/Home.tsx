@@ -19,7 +19,7 @@ export const Home = () => {
 
   return (
     <div className="home-container">
-      <h1>Animal Gif Explorer</h1>
+      <h1 className="title">Animal Gif Explorer</h1>
       <div className="home-header">
         <FilterGroup values={buttonFilters} onClick={handleFilter}/>
         <Input value={searchFilter} onChange={handleSearch} placeholder="Search a category"/>

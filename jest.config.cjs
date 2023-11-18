@@ -4,7 +4,9 @@ module.exports = {
   setupFilesAfterEnv: ['@testing-library/jest-dom'],
   testPathIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
+    "~@/(.*)": "<rootDir>/src/$1",
+    // "^@/(.*)$": "<rootDir>/src/$1",
+    "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
   },
   globals: {
     'ts-jest': {

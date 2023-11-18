@@ -6,7 +6,7 @@ interface PropsFilterGroup {
   onClick: (e: React.MouseEvent<HTMLElement>) => void
 }
 
-export const FilterGroup: React.FC = (props: PropsFilterGroup) => {
+export const FilterGroup = (props: PropsFilterGroup) => {
   return (
     <div className="filterGroup-container">
       {props.values.map((value, index) => (

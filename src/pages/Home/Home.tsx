@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "./styles.css";
 import {FilterGroup, Input, Timeline} from "@/components";
 
-export const Home: React.FC = () => {
+export const Home = () => {
   const buttonFilters = ["cat", "dog", "elephant", "lion", "monkey"];
   const [searchFilter, setSearchFilter] = useState<string>("");
   const [filter, setFilter] = useState<string>("");

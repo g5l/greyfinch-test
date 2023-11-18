@@ -7,7 +7,7 @@ interface PropsInput {
   onChange: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
-export const Input: React.FC = (props: PropsInput) => {
+export const Input = (props: PropsInput) => {
   return (
     <input
       value={props.value}

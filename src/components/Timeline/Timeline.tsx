@@ -7,14 +7,15 @@ import "./styles.css";
 
 interface PropsTimeline {
   data: Gif[],
-  totalCount: number,
   category: string,
   loadMore: () => void
 }
 
-// I kept the code to do an InfiniteScroll on Timeline so that maybe during the technical
+const LIMIT: number = 300;
+
+// I kept the commented code to do an InfiniteScroll on Timeline so that maybe during the technical
 // interview we could do it together, I couldn't achieve this using userQuery
-export const Timeline: React.FC = (props: PropsTimeline) => {
+export const Timeline = (props: PropsTimeline) => {
   // const [gifs, setGifs] = useState<Gif[]>([]);
   // const [isFetchingMore, setIsFetchingMore] = useState(false);
   // const [hasMore, setHasMore] = useState(true);
@@ -27,7 +28,7 @@ export const Timeline: React.FC = (props: PropsTimeline) => {
 
   const [{data, fetching, error}] = useQuery({
     query: GIFS_BY_CATEGORY_QUERY,
-    variables: {category: props.category, limit: 100},
+    variables: {category: props.category, limit: LIMIT},
     // pause: !props.category || isFetchingMore,
     // context: React.useMemo(() => ({}), [])
   });

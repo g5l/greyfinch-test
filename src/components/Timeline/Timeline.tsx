@@ -3,6 +3,7 @@ import {GIFS_BY_CATEGORY_QUERY} from "@/graphql/gifs";
 import React from "react";
 import {Gif} from "@/types";
 import {VirtuosoGrid} from "react-virtuoso";
+import {Image} from "@/components";
 import "./styles.css";
 
 export interface PropsTimeline {
@@ -62,9 +63,7 @@ export const Timeline = (props: PropsTimeline) => {
       endReached={loadMore}
       listClassName="infiniteLoop-list"
       useWindowScroll
-      itemContent={(index, item) => (
-        <img key={index} src={item.url} alt={item.category} className="infiniteLoop-image"/>
-      )}
+      itemContent={(index, item: Gif) => <Image key={index} {...item}/>}
     />
   );
 };

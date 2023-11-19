@@ -33,6 +33,14 @@ npm install
 npm run dev
 ```
 
+## Available Scripts
+
+- __`npm run dev`:__ Runs the app in development mode with hot-reloading enabled.
+- __`npm run build`:__ Compiles TypeScript files and builds the app for production to the `dist` folder.
+- __`npm run lint`:__ Lints and checks the code for any syntax errors.
+- __`npm run preview`:__ Starts a local server for previewing the production build.
+- __`npm run test:watch`:__ Runs all test suite in watch mode
+
 ## Project Structure
 - __/components:__ React components used across the application.
 - __/graphql:__ GraphQL queries and mutations.

@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.filterGroup-item.selected {
+  background: #111653;
+}
+
 @media (max-width: 680px), screen and (orientation: portrait) {
   .filterGroup-container {
     justify-content: space-between;

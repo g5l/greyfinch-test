@@ -21,7 +21,7 @@ export const Home = () => {
     <div className="home-container">
       <h1 className="title">Animal Gif Explorer</h1>
       <div className="home-header">
-        <FilterGroup values={buttonFilters} onClick={handleFilter}/>
+        <FilterGroup values={buttonFilters} selected={filter} onClick={handleFilter}/>
         <Input value={searchFilter} onChange={handleSearch} placeholder="Search a category"/>
       </div>
       <Timeline category={filter}/>

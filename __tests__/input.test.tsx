@@ -1,6 +1,6 @@
 import {fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import {Input} from '../components/Input/Input.tsx';
+import {Input} from '../src/components/Input/Input.tsx';
 
 describe('Input', () => {
   const input = {

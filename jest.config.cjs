@@ -6,7 +6,7 @@ module.exports = {
   moduleNameMapper: {
     "~@/(.*)": "<rootDir>/src/$1",
     // "^@/(.*)$": "<rootDir>/src/$1",
-    "\\.(css|less)$": "<rootDir>/src/__mocks__/styleMock.js"
+    "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
   },
   globals: {
     'ts-jest': {
@@ -20,6 +20,6 @@ module.exports = {
     }]
   },
   testMatch: [
-    '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}'
+    '<rootDir>/**/__tests__/**/*.{js,jsx,ts,tsx}'
   ]
 };

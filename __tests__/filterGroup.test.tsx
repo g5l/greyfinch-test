@@ -1,6 +1,6 @@
 import {fireEvent, render, screen} from "@testing-library/react";
 import "@testing-library/jest-dom";
-import {FilterGroup} from "../components/FilterGroup/FilterGroup.tsx";
+import {FilterGroup} from "../src/components/FilterGroup/FilterGroup.tsx";
 
 describe("FilterGroup", () => {
   const values = ["Option 1", "Option 2", "Option 3"];

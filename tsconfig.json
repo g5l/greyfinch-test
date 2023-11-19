@@ -26,7 +26,9 @@
   "paths": {
     "@*": ["./src/*"]
   },
-  "include": ["src","src/**/*.ts", "src/**/*.tsx", "src/__tests__/**/*.tsx"],
+  "include": ["src","src/**/*.ts", "src/**/*.tsx",
+    "__tests__/**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 
 }

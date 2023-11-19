@@ -1,6 +1,6 @@
 import {render, screen, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom';
-import {Timeline} from '../components/Timeline/Timeline.tsx';
+import {Timeline} from '../src/components/Timeline/Timeline.tsx';
 import {useQuery} from 'urql';
 
 jest.mock('urql', () => ({

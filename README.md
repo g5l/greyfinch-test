@@ -15,6 +15,7 @@ Animal Gif Explorer is a React-based application designed to entertain children 
 ### Prerequisites
 * Node.js
 * Docker
+* Remove the `.sample` from `.env.sample` file and provide a value for the `VITE_GRAPHQL_API_URL` variable
 
 ### Installation
 1. Clone the Repository

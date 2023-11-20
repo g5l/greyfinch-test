@@ -7,7 +7,7 @@ describe("FilterGroup", () => {
   const mockClick = jest.fn();
 
   beforeEach(() => {
-    render(<FilterGroup values={values} onClick={mockClick}/>);
+    render(<FilterGroup values={values} selected={values[0]} onClick={mockClick}/>);
   });
 
   it("renders correctly", () => {

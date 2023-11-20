@@ -47,3 +47,15 @@ npm run dev
 - __/graphql:__ GraphQL queries and mutations.
 - __/pages:__ React page components.
 - __/types:__ TypeScript type definitions.
+  
+## Why I use React-Virtuoso for Virtualized Timeline
+In Animal Gif Explorer, we aim to provide a seamless and efficient browsing experience, especially when dealing with a large number of animal gifs. This is where react-virtuoso comes into play.
+
+### Efficient Rendering with Virtualization
+React Virtuoso is a powerful React virtual list component that we have integrated to handle the rendering of our gif timeline. Virtualization is a technique that renders only the items in the list that are currently in the viewport or about to enter it. This means that, instead of loading and rendering every single gif at once – which can be overwhelming for both the browser and the user – `react-virtuoso` dynamically loads and unloads gifs as the user scrolls. This results in a significant performance boost, reducing memory usage and improving the responsiveness of the application.
+
+### Smooth User Experience
+With `react-virtuoso`, users experience smooth scrolling regardless of the number of gifs. This is crucial for our application, as it is designed for use in waiting rooms where network conditions can vary and performance is key to keeping children entertained without frustration.
+
+### Scalability and Maintenance
+As our application grows and the number of gifs increases, `react-virtuoso` ensures that our app can scale without a drop in performance. Additionally, its well-documented API and active community support make it a reliable choice for long-term maintenance and potential feature expansions.

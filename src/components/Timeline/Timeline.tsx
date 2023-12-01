@@ -1,63 +1,56 @@
 import {useQuery} from "urql";
 import {GIFS_BY_CATEGORY_QUERY} from "@/graphql/gifs";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Gif} from "@/types";
 import {VirtuosoGrid} from "react-virtuoso";
 import {Image} from "@/components";
 import "./styles.css";
 
 export interface PropsTimeline {
-  data: Gif[],
-  category: string,
-  loadMore: () => void
+  category: string;
 }
 
-const LIMIT: number = 300;
+const LIMIT: number = 10;
 
-// I kept the commented code to do an InfiniteScroll on Timeline so that maybe during the technical
-// interview we could do it together, I couldn't achieve this using userQuery
 export const Timeline = (props: PropsTimeline) => {
-  // const [gifs, setGifs] = useState<Gif[]>([]);
-  // const [isFetchingMore, setIsFetchingMore] = useState(false);
-  // const [hasMore, setHasMore] = useState(true);
-  // const offset = gifs?.length;
+  const [gifs, setGifs] = useState<Gif[]>([]);
+  const [shouldFetchMore, setShouldFetchMore] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
+  const gifsLength = gifs.length;
 
-  // useEffect(() => {
-  //   setGifs([]);
-  //   setHasMore(true);
-  // }, [props.category]);
+  useEffect(() => {
+    setGifs([]);
+    setHasMore(true);
+    setShouldFetchMore(true);
+  }, [props.category]);
 
   const [{data, fetching, error}] = useQuery({
     query: GIFS_BY_CATEGORY_QUERY,
-    variables: {category: props.category, limit: LIMIT},
-    // pause: !props.category || isFetchingMore,
-    // context: React.useMemo(() => ({}), [])
+    variables: {category: props.category, limit: LIMIT, offset: gifsLength},
+    pause: !shouldFetchMore
   });
-  const gifsLength = data?.gifs?.length;
 
-  // useEffect(() => {
-  //   if (data && data.gifs) {
-  //     console.log({data: data.gifs});
-  //     if (data.gifs.length === 0) {
-  //       setHasMore(false);
-  //     } else {
-  //       setGifs(prevItems => [...prevItems, ...data.gifs]);
-  //     }
-  //     setIsFetchingMore(false);
-  //   }
-  // }, [data]);
+  useEffect(() => {
+    if (data && data.gifs) {
+      if (data.gifs.length === 0) {
+        setHasMore(false);
+      } else {
+        setGifs(prevGifs => [...prevGifs, ...data.gifs]);
+      }
+      setShouldFetchMore(false);
+    }
+  }, [data]);
 
   const loadMore = () => {
-    // if (!fetching && !isFetchingMore && hasMore) setIsFetchingMore(true);
+    if (!fetching && !shouldFetchMore && hasMore) setShouldFetchMore(true);
   };
 
-
-  if (error || !gifsLength) return <p>Not found</p>;
-  if (fetching) return <p>Loading...</p>;
+  if (error) return <p>Not found</p>;
+  if (fetching && gifsLength < 0) return <p>Loading...</p>;
 
   return (
     <VirtuosoGrid
-      data={data?.gifs}
+      data={gifs}
       totalCount={gifsLength}
       className="infiniteLoop-container"
       endReached={loadMore}
